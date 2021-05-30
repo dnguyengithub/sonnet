@@ -369,7 +369,8 @@ def allow_empty_variables(module_or_cls: T) -> T:
 def assert_tf2():
   if not assert_tf2.checked:
     with tf.init_scope():
-      assert tf.executing_eagerly(), "Sonnet v2 requires TensorFlow 2"
+#       assert tf.executing_eagerly(), "Sonnet v2 requires TensorFlow 2"
+      assert int(tf.__version__[0]) >= 2, "Sonnet v2 requires TensorFlow 2"
     assert_tf2.checked = True
 
 assert_tf2.checked = False
